@@ -1,0 +1,55 @@
+.app {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.app > * {
+  flex-basis: 100%;
+}
+
+.app header {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: var(--bg-gradient);
+}
+
+.title {
+  margin: 8px auto;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.app header input {
+  border-radius: 150px;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+}
+
+.app main {
+  background: var(--bg-color);
+  height: 100%;
+  padding: 10px;
+}
+
+.app footer {
+}
+
+/* 
+.app {
+height: 100vh;
+display: grid;
+grid-template-rows: auto 1fr auto;
+}
+
+
+.app > header {
+  display: grid;
+  place-items: center;
+}
+
+.app > main {
+  padding: 10px;
+*/
