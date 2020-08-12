@@ -6,6 +6,7 @@ import ListItemIcon from "./components/ListItemIcon";
 import ListItemText from "./components/ListItemText";
 
 function App() {
+  const pokemons = ["Bulbasaur", "Pikachu", "Rattata", "Arbok"];
   return (
     <div className="app">
       <header>
@@ -13,15 +14,15 @@ function App() {
       </header>
       <main className="colorful-border">
         <List>
-          <ListItem href="#">
-            <ListItemIcon
-              imgSrc="https://img.pokemondb.net/artwork/large/bulbasaur.jpg
-"
-            />
-            <ListItemText title="PokemonName" subtitle="#123" />
-            {/* 
-            <ListItemIcon imgSrc="#" /> */}
-          </ListItem>
+          {pokemons.map((pokemon, index) => {
+            const pokeUrl = `https://img.pokemondb.net/artwork/large/${pokemon.toLowerCase()}.jpg`;
+            return (
+              <ListItem key={index} href={pokemon}>
+                <ListItemIcon imgSrc={pokeUrl} />
+                <ListItemText primary={pokemon} secondary={index + 1} />
+              </ListItem>
+            );
+          })}
         </List>
       </main>
       <footer>Tabs</footer>

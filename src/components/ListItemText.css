@@ -1,6 +1,13 @@
-.listItemTitle {
-  font-size: 1rem;
+.listItemText {
+  flex-grow: 1;
 }
-.listItemSubtitle {
+
+.listItemText__primary {
+  display: block;
+  font-weight: bold;
+}
+
+.listItemText__secondary {
+  display: block;
   font-size: 0.8rem;
 }
