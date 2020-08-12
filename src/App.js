@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import List from "./components/list";
+import List from "./components/List";
 
 function App() {
   return (
@@ -8,17 +8,14 @@ function App() {
       <header>
         <span className="title">Pokemon</span> <input placeholder="🔎 Search" />
       </header>
-      <main>
-        <nav>
-          <List>
-            Tescht
-            {/* <ListItem>
+      <main className="colorful-border">
+        <List>
+          {/* <ListItem link="#">
               <ListItemIcon src="">
-                <ListItemText primary="">
+                <ListItemText primary="Pokemon1" secondary="weight: 20kg">
                   </ListItemText>
-                </ListItem> */}
-          </List>
-        </nav>
+                </ListItem>  */}
+        </List>
       </main>
       <footer>Tabs</footer>
     </div>

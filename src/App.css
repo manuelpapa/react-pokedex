@@ -1,7 +1,7 @@
 .app {
   height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .app > * {
@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  background: var(--bg-gradient);
+  background: var(--bg-gradient-light);
 }
 
 .title {
@@ -30,26 +30,16 @@
 
 .app main {
   background: var(--bg-color);
-  height: 100%;
   padding: 10px;
+}
+
+.colorful-border {
+  border-style: solid;
+  border-image-slice: 1;
+  border-width: 5px 0;
+  border-image-source: var(--bg-gradient);
 }
 
 .app footer {
+  background: var(--bg-gradient-light);
 }
-
-/* 
-.app {
-height: 100vh;
-display: grid;
-grid-template-rows: auto 1fr auto;
-}
-
-
-.app > header {
-  display: grid;
-  place-items: center;
-}
-
-.app > main {
-  padding: 10px;
-*/
