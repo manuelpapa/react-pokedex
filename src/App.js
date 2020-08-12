@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
 import List from "./components/List";
+import ListItem from "./components/ListItem";
+import ListItemIcon from "./components/ListItemIcon";
+import ListItemText from "./components/ListItemText";
 
 function App() {
   return (
@@ -10,11 +13,15 @@ function App() {
       </header>
       <main className="colorful-border">
         <List>
-          {/* <ListItem link="#">
-              <ListItemIcon src="">
-                <ListItemText primary="Pokemon1" secondary="weight: 20kg">
-                  </ListItemText>
-                </ListItem>  */}
+          <ListItem href="#">
+            <ListItemIcon
+              imgSrc="https://img.pokemondb.net/artwork/large/bulbasaur.jpg
+"
+            />
+            <ListItemText title="PokemonName" subtitle="#123" />
+            {/* 
+            <ListItemIcon imgSrc="#" /> */}
+          </ListItem>
         </List>
       </main>
       <footer>Tabs</footer>
