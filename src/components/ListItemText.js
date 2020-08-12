@@ -1,11 +1,11 @@
 import React from "react";
 import "./ListItemText.css";
 
-export default function ListItemText(props) {
+export default function ListItemText({ title, subtitle }) {
   return (
     <div>
-      <span className="listItemTitle">{props.title}</span>
-      <span className="listItemSubtitle">{props.subtitle}</span>
+      <span className="listItemTitle">{title}</span>
+      <span className="listItemSubtitle">{subtitle}</span>
     </div>
   );
 }
