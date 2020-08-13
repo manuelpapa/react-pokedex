@@ -25,6 +25,7 @@ function App() {
       <footer>Tabs</footer>
     </div>
   );
+  return <div>Pokedex</div>;
 }
 
 export default App;
