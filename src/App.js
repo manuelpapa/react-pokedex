@@ -5,8 +5,8 @@ import ListItem from "./components/ListItem";
 import ListItemIcon from "./components/ListItemIcon";
 import ListItemText from "./components/ListItemText";
 
+const pokemons = ["Bulbasaur", "Pikachu", "Rattata", "Arbok"];
 function App() {
-  const pokemons = ["Bulbasaur", "Pikachu", "Rattata", "Arbok"];
   return (
     <div className="app">
       <header>
@@ -14,15 +14,12 @@ function App() {
       </header>
       <main className="colorful-border">
         <List>
-          {pokemons.map((pokemon, index) => {
-            const pokeUrl = `https://img.pokemondb.net/artwork/large/${pokemon.toLowerCase()}.jpg`;
-            return (
-              <ListItem key={index} href={pokemon}>
-                <ListItemIcon imgSrc={pokeUrl} />
-                <ListItemText primary={pokemon} secondary={index + 1} />
-              </ListItem>
-            );
-          })}
+          {pokemons.map((pokemon) => (
+            <ListItem key={index} href={pokemon}>
+              <ListItemIcon imgSrc={pokeUrl} />
+              <ListItemText primary={pokemon} secondary={index + 1} />
+            </ListItem>
+          ))}
         </List>
       </main>
       <footer>Tabs</footer>
@@ -31,3 +28,17 @@ function App() {
 }
 
 export default App;
+
+/* old list
+<List>
+{pokemons.map((pokemon, index) => {
+  const pokeUrl = `https://img.pokemondb.net/artwork/large/${pokemon.toLowerCase()}.jpg`;
+  return (
+    <ListItem key={index} href={pokemon}>
+      {/* Don't use index */
+/* <ListItemIcon imgSrc={pokeUrl} />
+      <ListItemText primary={pokemon} secondary={index + 1} />
+    </ListItem>
+  );
+})}
+</List> */
