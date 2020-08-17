@@ -7,6 +7,8 @@ import ListItemIcon from "./components/ListItemIcon";
 import { fetchPokemons } from "./api/pokemons";
 import LoadingScreen from "./components/LoadingScreen";
 
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 function App() {
   const [pokemons, setPokemons] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -31,33 +33,35 @@ function App() {
   });
 
   return (
-    <div className="app">
-      <header>
-        Pokedex{" "}
-        <input
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Enter name"
-        />
-      </header>
-      <main className="colorful-border">
-        <List>
-          {filteredPokemons.map((pokemon) => (
-            <ListItem key={pokemon.id} href={pokemon.link}>
-              <ListItemIcon
-                src={pokemon.imgSrc}
-                alt={`Picture of ${pokemon.name}`}
-              />
-              <ListItemText
-                primary={pokemon.name}
-                secondary={`#${pokemon.id}`}
-              />
-            </ListItem>
-          ))}
-        </List>
-      </main>
-      <footer>Footer</footer>
-    </div>
+    <Router>
+      <div className="app">
+        <header>
+          Pokedex{" "}
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Enter name"
+          />
+        </header>
+        <main className="colorful-border">
+          <List>
+            {filteredPokemons.map((pokemon) => (
+              <ListItem key={pokemon.id} href={pokemon.link}>
+                <ListItemIcon
+                  src={pokemon.imgSrc}
+                  alt={`Picture of ${pokemon.name}`}
+                />
+                <ListItemText
+                  primary={pokemon.name}
+                  secondary={`#${pokemon.id}`}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </main>
+        <footer>Footer</footer>
+      </div>
+    </Router>
   );
 }
 
