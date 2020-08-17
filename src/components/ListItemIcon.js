@@ -1,6 +1,8 @@
 import React from "react";
 import "./ListItemIcon.css";
 
-export default function ListItemIcon({ imgSrc, name }) {
-  return <img className="listItemIcon" src={imgSrc} alt={name} />;
+function ListItemIcon({ src, alt }) {
+  return <img className="listItemIcon" src={src} alt={alt} />;
 }
+
+export default ListItemIcon;

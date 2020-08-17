@@ -1,11 +1,13 @@
 import React from "react";
 import "./ListItemText.css";
 
-export default function ListItemText({ primary, secondary }) {
+function ListItemText({ primary, secondary }) {
   return (
     <div className="listItemText">
-      <div className="listItemText__primary">{primary}</div>
-      <div className="listItemText__secondary">{secondary}</div>
+      <span className="listItemText___primary">{primary}</span>
+      <span className="listItemText___secondary">{secondary}</span>
     </div>
   );
 }
+
+export default ListItemText;

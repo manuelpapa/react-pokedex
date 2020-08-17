@@ -1,10 +1,12 @@
-import React from "react";
 import "./ListItem.css";
+import React from "react";
 
-export default function ListItem({ href, children }) {
+function ListItem({ href, children }) {
   return (
     <a className="listItem" href={href}>
       {children}
     </a>
   );
 }
+
+export default ListItem;

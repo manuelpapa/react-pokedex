@@ -1,6 +1,17 @@
 import React from "react";
-import "./loading.css";
+import "./LoadingScreen.css";
+import Pokeball from "../assets/pokeball.svg";
 
-export default function LoadingScreen() {
-  return <div className="loader" />;
+function LoadingScreen() {
+  return (
+    <div className="loadingScreen">
+      <img
+        className="loadingScreen__icon"
+        src={Pokeball}
+        alt="Pokeball Loading Indicator"
+      />
+    </div>
+  );
 }
+
+export default LoadingScreen;
