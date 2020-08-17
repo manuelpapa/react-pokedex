@@ -4,42 +4,28 @@
   grid-template-rows: auto 1fr auto;
 }
 
-.app > * {
-  flex-basis: 100%;
-}
-
-.app header {
-  display: flex;
-  flex-direction: column;
+.app > header {
+  font-size: 1.2rem;
   padding: 10px;
-  background: var(--bg-gradient-light);
+  display: grid;
+  place-items: center;
+  background: var(--bg-gradient);
 }
 
-.title {
-  margin: 8px auto;
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.app header input {
-  border-radius: 150px;
-  padding: 10px 15px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-}
-
-.app main {
+.app > main {
+  padding: 10px;
   background: var(--bg-color);
+  overflow: auto;
+}
+
+.app > footer {
   padding: 10px;
+  background: var(--bg-gradient);
 }
 
 .colorful-border {
   border-style: solid;
   border-image-slice: 1;
   border-width: 5px 0;
-  border-image-source: var(--bg-gradient);
-}
-
-.app footer {
-  background: var(--bg-gradient-light);
+  border-image-source: var(--bg-border);
 }

@@ -1,37 +1,57 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import List from "./components/List";
 import ListItem from "./components/ListItem";
-import ListItemIcon from "./components/ListItemIcon";
 import ListItemText from "./components/ListItemText";
-import fetchPokemons from "./api/pokemonApi";
+import ListItemIcon from "./components/ListItemIcon";
+import { fetchPokemons } from "./api/pokemons";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
-  async function setPokemons() {
-    const pokemons = await fetchPokemons();
-    setPokemonState(pokemons);
+  const [pokemons, setPokemons] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    async function fetchData() {
+      setIsLoading(true);
+      const allPokemons = await fetchPokemons();
+      setPokemons(allPokemons);
+      setIsLoading(false);
+    }
+    fetchData();
+  }, []);
+
+  if (isLoading || pokemons === null) {
+    return <LoadingScreen />;
   }
-  const [pokemonState, setPokemonState] = React.useState();
-  useEffect(() => setPokemons().didUpdate);
+
+  const filteredPokemons = pokemons.filter((pokemon) => {
+    return pokemon.name.toLowerCase().startsWith(query.toLowerCase());
+  });
 
   return (
     <div className="app">
       <header>
-        Pokedex
-        {/* <button onClick={handleClick}>catch 'em all</button> */}
+        Pokedex{" "}
+        <input
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Enter name"
+        />
       </header>
       <main className="colorful-border">
         <List>
-          {pokemonState?.map((pokemon) => (
+          {filteredPokemons.map((pokemon) => (
             <ListItem key={pokemon.id} href={pokemon.link}>
               <ListItemIcon
                 src={pokemon.imgSrc}
                 alt={`Picture of ${pokemon.name}`}
-              ></ListItemIcon>
+              />
               <ListItemText
                 primary={pokemon.name}
-                secondary={`${pokemon.id}`}
-              ></ListItemText>
+                secondary={`#${pokemon.id}`}
+              />
             </ListItem>
           ))}
         </List>
