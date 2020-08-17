@@ -3,8 +3,9 @@ import List from "../components/List";
 import ListItem from "../components/ListItem";
 import ListItemText from "../components/ListItemText";
 import ListItemIcon from "../components/ListItemIcon";
-import { fetchPokemons } from "../api/pokemons";
+
 import LoadingScreen from "../components/LoadingScreen";
+import { fetchPokemons } from "../api/pokemons";
 
 function Pokemons() {
   const [pokemons, setPokemons] = useState(null);
