@@ -1,45 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import List from "./components/List";
 import ListItem from "./components/ListItem";
 import ListItemIcon from "./components/ListItemIcon";
 import ListItemText from "./components/ListItemText";
+import fetchPokemons from "./api/pokemonApi";
 
-const pokemons = ["Bulbasaur", "Pikachu", "Rattata", "Arbok"];
 function App() {
+  async function setPokemons() {
+    const pokemons = await fetchPokemons();
+    setPokemonState(pokemons);
+  }
+  const [pokemonState, setPokemonState] = React.useState();
+  useEffect(() => setPokemons().didUpdate);
+
   return (
     <div className="app">
       <header>
-        <span className="title">Pokemon</span> <input placeholder="🔎 Search" />
+        Pokedex
+        {/* <button onClick={handleClick}>catch 'em all</button> */}
       </header>
       <main className="colorful-border">
         <List>
-          {pokemons.map((pokemon) => (
-            <ListItem key={index} href={pokemon}>
-              <ListItemIcon imgSrc={pokeUrl} />
-              <ListItemText primary={pokemon} secondary={index + 1} />
+          {pokemonState?.map((pokemon) => (
+            <ListItem key={pokemon.id} href={pokemon.link}>
+              <ListItemIcon
+                src={pokemon.imgSrc}
+                alt={`Picture of ${pokemon.name}`}
+              ></ListItemIcon>
+              <ListItemText
+                primary={pokemon.name}
+                secondary={`${pokemon.id}`}
+              ></ListItemText>
             </ListItem>
           ))}
         </List>
       </main>
-      <footer>Tabs</footer>
+      <footer>Footer</footer>
     </div>
   );
-  return <div>Pokedex</div>;
 }
 
 export default App;
-
-/* old list
-<List>
-{pokemons.map((pokemon, index) => {
-  const pokeUrl = `https://img.pokemondb.net/artwork/large/${pokemon.toLowerCase()}.jpg`;
-  return (
-    <ListItem key={index} href={pokemon}>
-      {/* Don't use index */
-/* <ListItemIcon imgSrc={pokeUrl} />
-      <ListItemText primary={pokemon} secondary={index + 1} />
-    </ListItem>
-  );
-})}
-</List> */
